@@ -1,0 +1,34 @@
+##############################################################################################################################
+1. Flush and reload attack
+	files :--
+	flush_reload.c
+	cacheutils.h
+
+	Victim-program :-  $ ./gpg -d ../tesfiles/hello.txt.gpg
+	attacker-program :- 
+	compilation : -      $ gcc flush_reload.c
+	execution : -        $ taskset -c 3 sudo nice -n -20 ./a.out
+
+2. Prime and probe L1 I cache
+	files :-
+	L1_prime and probe.c
+	cacheutils.h
+	Victim-program :-  $ ./gpg -d ../tesfiles/hello.txt.gpg
+	attacker-program :- 
+	compilation : -      $ gcc L1_prime_and_probe.c -o prime_probe -fno-stack-protector -z execstack -no-pie -g
+	execution : -        $ taskset -c 3 sudo nice -n -20 ./prime_probe
+
+2. Prime and probe LLC I cache
+	files :-
+	L1_prime and probe.c
+	cacheutils.h
+	Victim-program :-  $ ./gpg -d ../tesfiles/hello.txt.gpg
+	attacker-program :- 
+	compilation : -      $ gcc LLC_prime_and_probe.c -o LLC_pp -fno-stack-protector -z execstack -no-pie -g
+	execution : -        $./LLC_pp
+
+
+
+
+
+

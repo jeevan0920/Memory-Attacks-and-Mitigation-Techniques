@@ -1,0 +1,24 @@
+
+echo 512 > /proc/sys/vm/nr_hugepages		or	sysctl -w vm.nr_hugepages=512
+
+
+grep HugePages_Total /proc/meminfo
+
+
+
+ ----------------------------------------------------------------------------------------------
+
+echo 2 | sudo tee /proc/sys/kernel/randomize_va_space
+
+-------------------------------------------------------------------------------------------------
+
+
+
+mul - 0x494ad0
+
+sqr -  0x494fb0
+
+r - 0x493dd0
+
+
+
